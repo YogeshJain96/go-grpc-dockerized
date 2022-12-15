@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "pb/org";
+
+message Emp {
+  int32 id = 1;
+  string name = 2;
+  optional string department = 3;
+}
+
+message GetEmpListRequest {}
+message GetEmpListResponse { repeated Emp emps = 1; }
+
+
+service Demo {
+  rpc GetEmpList(GetEmpListRequest) returns (GetEmpListResponse) {}
+}
